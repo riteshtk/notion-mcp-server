@@ -1,7 +1,8 @@
 version: 1
 
 start:
-  command: ["notion-mcp-server"]
+  command:
+    - "notion-mcp-server"
   port: 8000
 
 build:
@@ -13,9 +14,10 @@ env:
 
 configSchema:
   type: object
-  required: ["NOTION_API_KEY"]
+  required:
+    - NOTION_API_KEY
   properties:
     NOTION_API_KEY:
       type: string
-      title: "Notion Integration Token"
-      description: "Required to authenticate and access your Notion workspace"
+      title: "Notion API Key"
+      description: "Your integration token from Notion"
