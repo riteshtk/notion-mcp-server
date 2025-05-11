@@ -19,4 +19,4 @@ startCommand:
 
 build:
   dockerfile: Dockerfile
-  context: .
+  dockerBuildPath: .
