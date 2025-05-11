@@ -1,1 +1,21 @@
+version: 1
 
+start:
+  command: ["notion-mcp-server"]
+  port: 8000
+
+build:
+  dockerfile: Dockerfile
+  context: .
+
+env:
+  OPENAPI_MCP_HEADERS: "{}"
+
+configSchema:
+  type: object
+  required: ["NOTION_API_KEY"]
+  properties:
+    NOTION_API_KEY:
+      type: string
+      title: "Notion Integration Token"
+      description: "Required to authenticate and access your Notion workspace"
