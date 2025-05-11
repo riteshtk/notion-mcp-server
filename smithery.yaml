@@ -1,23 +1,22 @@
 version: 1
 
-start:
-  command:
-    - "notion-mcp-server"
+startCommand:
+  type: http
   port: 8000
+  configSchema:
+    type: object
+    required: ["apiKey"]
+    properties:
+      apiKey:
+        type: string
+        title: "API Key"
+        description: "Your API key"
+      temperature:
+        type: number
+        default: 0.7
+        minimum: 0
+        maximum: 1
 
 build:
   dockerfile: Dockerfile
   context: .
-
-env:
-  OPENAPI_MCP_HEADERS: "{}"
-
-configSchema:
-  type: object
-  required:
-    - NOTION_API_KEY
-  properties:
-    NOTION_API_KEY:
-      type: string
-      title: "Notion API Key"
-      description: "Your integration token from Notion"
